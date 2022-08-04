@@ -45,11 +45,11 @@ def chunk_message(message, chunk_size):
 
     return "".join(chunk_message)
 
-# ''' This function should add characters, if needed, to the message in order
-#     to make the total length of the message an even multiple of the chunk_size. For example:
-#     if the message is 17 characters long and the chunk size is 5, then you need to add 3 characters to
-#     get to a length of 20, which is an even multiple of 20.
-# '''
+# This function should add characters, if needed, to the message in order
+# to make the total length of the message an even multiple of the chunk_size. For example:
+# if the message is 17 characters long and the chunk size is 5, then you need to add 3 characters to
+# get to a length of 20, which is an even multiple of 20.
+
 def pad_message(message, chunk_size):
     message_length = len(message)
     new_message_list = []
@@ -58,7 +58,8 @@ def pad_message(message, chunk_size):
     if(message_length % chunk_size == 0):
         return message
     elif(message_length % chunk_size != 0):
-        new_message_list.append("x" * remainder)
+        difference = chunk_size - remainder
+        new_message_list.append("x" * difference)
         x = message.join(new_message_list)
         return message + x
 
